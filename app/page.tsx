@@ -1,20 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { getMessagesFromDatabase } from "@/actions/get-message-from-database";
+import MessageDisplay from "@/components/message-display";
+import MessageForm from "@/components/message-form";
 
-export default function Home() {
+export const runtime="edge"
+
+export default async function Home() {
+  const messages=await getMessagesFromDatabase();
   return (
     <main className="max-w-2xl mx-auto p-10">
-      <div className="flex flex-col justify-center gap-3">
-        <Input placeholder="This is my input component" />
-        <Button>Submit</Button>
-      </div>
-      <div className="p-5">
-        <ul>
-          <li>This is first message</li>
-          <li>This is second message</li>
-          <li>This is third message</li>
-        </ul>
-      </div>
+      <MessageForm/>
+      <MessageDisplay messages={messages}/>
     </main>
   );
 }
