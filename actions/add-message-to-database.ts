@@ -1,12 +1,13 @@
 "use server";
 
-import { db } from "@/app/db/index";
+import { getDb } from "@/app/db/index";
 import { messages } from "@/app/db/schema";
 import { revalidatePath } from "next/cache";
 
 export async function addMessageToDatabase(input:string){
     console.log(input);
     try{
+        const db=getDb();
         await db.insert(messages).values({message:input});
         revalidatePath("/");
     }catch(error){
