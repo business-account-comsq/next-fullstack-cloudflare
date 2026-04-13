@@ -1,6 +1,6 @@
 export async function getDb() {
-  const { drizzle }=await import("drizzle-orm/libsql/web");
-  const { createClient }=await import ("@libsql/client/web");
+  const { drizzle }=await import("drizzle-orm/libsql");
+  const { createClient }=await import ("@libsql/client/http");
   const client = createClient({
     url: process.env.DATABASE_URL!,
     authToken: process.env.DATABASE_TOKEN!,
