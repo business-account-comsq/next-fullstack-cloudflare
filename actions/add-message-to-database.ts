@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 export async function addMessageToDatabase(input:string){
     console.log(input);
     try{
-        const db=getDb();
+        const db=await getDb();
         await db.insert(messages).values({message:input});
         revalidatePath("/");
     }catch(error){
