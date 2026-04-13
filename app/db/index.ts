@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/libsql";
-import { createClient } from "@libsql/client/http";
+import { createClient } from "@libsql/client/web";
 
 export function getDb() {
   const client = createClient({
