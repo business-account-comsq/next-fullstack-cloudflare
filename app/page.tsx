@@ -1,4 +1,4 @@
-import { getMessagesFromDatabase } from "@/actions/get-message-from-database";
+//import { getMessagesFromDatabase } from "@/actions/get-message-from-database";
 import MessageDisplay from "@/components/message-display";
 import MessageForm from "@/components/message-form";
 
