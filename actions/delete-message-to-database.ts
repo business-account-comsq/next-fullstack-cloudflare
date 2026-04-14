@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 export async function deleteMessageToDatabase(id:number){
     try{
         await db.delete(messages).where(eq(messages.id,id))
-        revalidatePath("/");
+        //revalidatePath("/");
     }catch(error){
         console.log(error);
         return {
