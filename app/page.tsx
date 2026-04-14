@@ -5,11 +5,11 @@ import MessageForm from "@/components/message-form";
 export const runtime="edge"
 
 export default async function Home() {
-  const messages=await getMessagesFromDatabase();
+  //const messages=await getMessagesFromDatabase();
   return (
     <main className="max-w-2xl mx-auto p-10">
       <MessageForm/>
-      <MessageDisplay messages={messages}/>
+      <MessageDisplay messages={[]}/>
     </main>
   );
 }
